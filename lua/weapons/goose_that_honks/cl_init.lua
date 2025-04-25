@@ -1,5 +1,5 @@
--- SCP-207, A representation of a paranormal object on a fictional series on the game Garry's Mod.
--- Copyright (C) 2023  MrMarrant aka BIBI.
+-- Charming Discussion, A pleasant discussion between two civilized people on the game Garry's Mod.
+-- Copyright (C) 2025  MrMarrant.
 
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -14,11 +14,11 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-include('shared.lua')
+include("shared.lua")
 
-SWEP.PrintName = "Goose"
+SWEP.PrintName = "Goose that honks"
 SWEP.Author = "MrMarrant"
-SWEP.Purpose = "GET THE HELL OUT OF MY ADDON"
+SWEP.Purpose = "HEY YOU, YES YOU, STOP, GET OUT, GET OUT OF HERE, GET OUT OF HERE, GET OUT OF MY ADDON, JEEZ"
 SWEP.DrawCrosshair = false
 SWEP.Base = "weapon_base"
 SWEP.AutoSwitchTo = true

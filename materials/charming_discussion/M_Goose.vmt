@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "charming_discussion/M_Goose"
+	$nocull 1
+}

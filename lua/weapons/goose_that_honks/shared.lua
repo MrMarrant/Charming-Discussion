@@ -24,7 +24,7 @@ SWEP.Spawnable = true
 
 SWEP.Category = "Charming Discussion"
 SWEP.ViewModel = Model( "models/weapons/charming_discussion/vm_goose.mdl" )
-SWEP.WorldModel = ""
+SWEP.WorldModel = Model( "models/weapons/charming_discussion/wm_goose.mdl" ) --! Problème : Le WM ne joue pas les animations
 
 SWEP.ViewModelFOV = 65
 SWEP.HoldType = "slam"
@@ -65,6 +65,7 @@ function SWEP:PrimaryAttack()
 	end
 	self:ActionGoose( ACT_VM_PRIMARYATTACK )
 	self:Honk( soundToPlay )
+	ply:SetAnimation( PLAYER_ATTACK1 )
 	ply.charmingdiscussion_wasHonk = false
 end
 

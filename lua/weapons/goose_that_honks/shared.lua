@@ -43,7 +43,7 @@ SWEP.DrawAmmo = false
 
 -- Variables Personnal to this weapon --
 -- [[ STATS WEAPON ]]
-SWEP.PreviousScream = ""
+SWEP.PreviousScream = "" --! Not used for now
 
 function SWEP:Initialize()
 	self:SetWeaponHoldType( self.HoldType )
@@ -98,7 +98,7 @@ function SWEP:ActionGoose( animToPlay )
 	end)
 end
 
--- Compteur de honk à afficher peut être ?
+-- TODO : Compteur de honk à afficher peut être ?
 function SWEP:CheckFucker()
 	local ply = self:GetOwner()
 	local size = CHARMING_DISCUSSION_CONFIG.DistanceFucker
@@ -108,8 +108,8 @@ function SWEP:CheckFucker()
 	local entsFound = ents.FindInCone( startPos, dir, size, angle )
 	for key, value in ipairs(entsFound) do
 		if ( value:IsPlayer() and value:HasWeapon("goose_that_honks") ) then
-				value.charmingdiscussion_wasHonk = true
-				ply.charmingdiscussion_honkStack = ply.charmingdiscussion_honkStack and ply.charmingdiscussion_honkStack + 1 or 1
+			value.charmingdiscussion_wasHonk = true
+			ply.charmingdiscussion_honkStack = ply.charmingdiscussion_honkStack and ply.charmingdiscussion_honkStack + 1 or 1
 		end
 	end
 end

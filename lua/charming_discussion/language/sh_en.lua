@@ -14,27 +14,18 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-include("shared.lua")
+local LANG_EN = {
+    -- Reward Honk
+    rewardhonk_10 = "You honked 10 times, you are a honker!",
+    rewardhonk_50 = "You honked 50 times, you are a big honker!",
+    rewardhonk_100 = "You honked 100 times, you are a super ultra monkey honker!",
+    rewardhonk_300 = "You honked 300 times, you are a ouga bounga honker!",
+    rewardhonk_500 = "You honked 500 times, that's it, enough honk for you!",
 
-SWEP.PrintName = "Goose that honks"
-SWEP.Author = "MrMarrant"
-SWEP.Purpose = "HEY YOU, YES YOU, STOP, GET OUT, GET OUT OF HERE, GET OUT OF HERE, GET OUT OF MY ADDON, JEEZ"
-SWEP.DrawCrosshair = false
-SWEP.Base = "weapon_base"
-SWEP.AutoSwitchTo = true
+    -- Machine gun honk
+    machinegunhonk_01 = "You seem to enjoy honking",
+    machinegunhonk_02 = "Let's see if you're a real honker!",
+    machinegunhonk_03 = "Machine Gun Honk unlock!",
+}
 
-function SWEP:DrawHUD()
-    local materialPath = self:GetCurrentScreamer()
-    if (not materialPath or materialPath == "") then return end
-
-    local screamMaterial = Material(self:GetCurrentScreamer())
-    surface.SetMaterial( screamMaterial )
-    surface.SetDrawColor(255, 255, 255, 255)
-    surface.DrawTexturedRect(0, 0, CHARMING_DISCUSSION_CONFIG.ScrW, CHARMING_DISCUSSION_CONFIG.ScrH)
-end
-
-function SWEP:StartScreamer()
-end
-
-function SWEP:NextScreamer()
-end
+charming_discussion.AddLanguage("en", LANG_EN)

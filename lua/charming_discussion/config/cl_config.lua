@@ -14,27 +14,10 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-include("shared.lua")
+CHARMING_DISCUSSION_CONFIG.ScrW = ScrW()
+CHARMING_DISCUSSION_CONFIG.ScrH = ScrH()
 
-SWEP.PrintName = "Goose that honks"
-SWEP.Author = "MrMarrant"
-SWEP.Purpose = "HEY YOU, YES YOU, STOP, GET OUT, GET OUT OF HERE, GET OUT OF HERE, GET OUT OF MY ADDON, JEEZ"
-SWEP.DrawCrosshair = false
-SWEP.Base = "weapon_base"
-SWEP.AutoSwitchTo = true
-
-function SWEP:DrawHUD()
-    local materialPath = self:GetCurrentScreamer()
-    if (not materialPath or materialPath == "") then return end
-
-    local screamMaterial = Material(self:GetCurrentScreamer())
-    surface.SetMaterial( screamMaterial )
-    surface.SetDrawColor(255, 255, 255, 255)
-    surface.DrawTexturedRect(0, 0, CHARMING_DISCUSSION_CONFIG.ScrW, CHARMING_DISCUSSION_CONFIG.ScrH)
-end
-
-function SWEP:StartScreamer()
-end
-
-function SWEP:NextScreamer()
-end
+hook.Add( "OnScreenSizeChanged", "OnScreenSizeChanged.CharmingDiscussion", function( oldWidth, oldHeight )
+    CHARMING_DISCUSSION_CONFIG.ScrW = ScrW()
+    CHARMING_DISCUSSION_CONFIG.ScrH = ScrH()
+end )

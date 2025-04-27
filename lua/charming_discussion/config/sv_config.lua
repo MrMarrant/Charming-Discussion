@@ -1,40 +1,24 @@
 -- Charming Discussion, A pleasant discussion between two civilized people on the game Garry's Mod.
 -- Copyright (C) 2025  MrMarrant.
-
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
 -- the Free Software Foundation, either version 3 of the License, or
 -- (at your option) any later version.
-
 -- This program is distributed in the hope that it will be useful,
 -- but WITHOUT ANY WARRANTY; without even the implied warranty of
 -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 -- GNU General Public License for more details.
-
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-include("shared.lua")
+hook.Add( "PlayerDeath", "CharmingDiscussion.PlayerDeath", function(ply)
+    ply.charmingdiscussion_wasHonk = false
+    timer.Remove("CharmingDiscussion.ScreamHonk")
+    timer.Remove("CharmingDiscussion.ScreamDelay")
+end)
 
-SWEP.PrintName = "Goose that honks"
-SWEP.Author = "MrMarrant"
-SWEP.Purpose = "HEY YOU, YES YOU, STOP, GET OUT, GET OUT OF HERE, GET OUT OF HERE, GET OUT OF MY ADDON, JEEZ"
-SWEP.DrawCrosshair = false
-SWEP.Base = "weapon_base"
-SWEP.AutoSwitchTo = true
-
-function SWEP:DrawHUD()
-    local materialPath = self:GetCurrentScreamer()
-    if (not materialPath or materialPath == "") then return end
-
-    local screamMaterial = Material(self:GetCurrentScreamer())
-    surface.SetMaterial( screamMaterial )
-    surface.SetDrawColor(255, 255, 255, 255)
-    surface.DrawTexturedRect(0, 0, CHARMING_DISCUSSION_CONFIG.ScrW, CHARMING_DISCUSSION_CONFIG.ScrH)
-end
-
-function SWEP:StartScreamer()
-end
-
-function SWEP:NextScreamer()
-end
+hook.Add( "PlayerChangedTeam", "CharmingDiscussion.PlayerChangedTeam", function( ply, oldTeam, newTeam )
+    ply.charmingdiscussion_wasHonk = false
+    timer.Remove("CharmingDiscussion.ScreamHonk")
+    timer.Remove("CharmingDiscussion.ScreamDelay")
+end )

@@ -14,27 +14,25 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-include("shared.lua")
-
-SWEP.PrintName = "Goose that honks"
-SWEP.Author = "MrMarrant"
-SWEP.Purpose = "HEY YOU, YES YOU, STOP, GET OUT, GET OUT OF HERE, GET OUT OF HERE, GET OUT OF MY ADDON, JEEZ"
-SWEP.DrawCrosshair = false
-SWEP.Base = "weapon_base"
-SWEP.AutoSwitchTo = true
-
-function SWEP:DrawHUD()
-    local materialPath = self:GetCurrentScreamer()
-    if (not materialPath or materialPath == "") then return end
-
-    local screamMaterial = Material(self:GetCurrentScreamer())
-    surface.SetMaterial( screamMaterial )
-    surface.SetDrawColor(255, 255, 255, 255)
-    surface.DrawTexturedRect(0, 0, CHARMING_DISCUSSION_CONFIG.ScrW, CHARMING_DISCUSSION_CONFIG.ScrH)
+--[[
+* Returns the element to be translated according to the server language.
+* @string langName Language name (ex : en, fr)
+* @table data The table contain the translations
+--]]
+function charming_discussion.AddLanguage(langName, data)
+    if (type(langName) == "string" and type(data) == "table") then
+        CHARMING_DISCUSSION_LANG[langName] = data
+    end
 end
 
-function SWEP:StartScreamer()
-end
-
-function SWEP:NextScreamer()
+--[[
+* Returns the element to be translated according to the server language.
+* @string name Element to translate.
+--]]
+function charming_discussion.GetTranslation(name)
+    local langUsed = CHARMING_DISCUSSION_CONFIG.LangServer
+    if not CHARMING_DISCUSSION_LANG[langUsed] then
+        langUsed = "en" -- Default lang is EN.
+    end
+    return string.format( CHARMING_DISCUSSION_LANG[langUsed][ name ] or "Not Found" )
 end

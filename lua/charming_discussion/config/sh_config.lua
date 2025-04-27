@@ -14,7 +14,11 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
---Sound Path
+-- Net Var
+CHARMING_DISCUSSION_CONFIG.NetVar = {}
+CHARMING_DISCUSSION_CONFIG.NetVar.ScreamerHonk = "CHARMING_DISCUSSION_CONFIG.NetVar.ScreamerHonk"
+
+-- Sound Path
 CHARMING_DISCUSSION_CONFIG.Sounds = {}
 CHARMING_DISCUSSION_CONFIG.Sounds.BadLanguage = {}
 CHARMING_DISCUSSION_CONFIG.Sounds.BadLanguage[1] = "charming_discussion/bad_language/bad_language-01.mp3"
@@ -30,6 +34,16 @@ CHARMING_DISCUSSION_CONFIG.Sounds.Ouink[1] = "charming_discussion/ouink/ouink-01
 CHARMING_DISCUSSION_CONFIG.Sounds.Ouink[2] = "charming_discussion/ouink/ouink-02.mp3"
 CHARMING_DISCUSSION_CONFIG.Sounds.Ouink[3] = "charming_discussion/ouink/ouink-03.mp3"
 CHARMING_DISCUSSION_CONFIG.Sounds.Ouink[4] = "charming_discussion/ouink/ouink-04.mp3"
+
+CHARMING_DISCUSSION_CONFIG.Sounds.Special = {}
+CHARMING_DISCUSSION_CONFIG.Sounds.Special[1] = "charming_discussion/special/applause.mp3"
+
+CHARMING_DISCUSSION_CONFIG.Sounds.Scream = {}
+CHARMING_DISCUSSION_CONFIG.Sounds.Scream[1] = ""
+
+-- Images Path
+CHARMING_DISCUSSION_CONFIG.Images = {}
+CHARMING_DISCUSSION_CONFIG.Images[1] = "charming_discussion/images/goose_01.png"
 
 --Settings params
 CHARMING_DISCUSSION_CONFIG.DistanceFucker = 500

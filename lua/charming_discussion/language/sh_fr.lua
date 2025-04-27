@@ -14,27 +14,18 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-include("shared.lua")
+local LANG_FR = {
+    -- Reward Honk
+    rewardhonk_10 = "Tu as couac 10 fois, tu es un couaceur!",
+    rewardhonk_50 = "Tu as couac 50 fois, tu es un énorme couaceur!",
+    rewardhonk_100 = "Tu as couac 100 fois, tu es un super ultra macaque couaceur!",
+    rewardhonk_300 = "Tu as couac 300 fois, tu es un ouga bounga couaceur!",
+    rewardhonk_500 = "Tu as couac 500 fois, ok c'est bon, assez de couac pour toi!",
 
-SWEP.PrintName = "Goose that honks"
-SWEP.Author = "MrMarrant"
-SWEP.Purpose = "HEY YOU, YES YOU, STOP, GET OUT, GET OUT OF HERE, GET OUT OF HERE, GET OUT OF MY ADDON, JEEZ"
-SWEP.DrawCrosshair = false
-SWEP.Base = "weapon_base"
-SWEP.AutoSwitchTo = true
+    -- Machine gun honk
+    machinegunhonk_01 = "Tu as l'air d'apprécier de couacer",
+    machinegunhonk_02 = "Voyons voir si tu es un vrai couaceur!",
+    machinegunhonk_03 = "Couac mitraillette débloquer!",
+}
 
-function SWEP:DrawHUD()
-    local materialPath = self:GetCurrentScreamer()
-    if (not materialPath or materialPath == "") then return end
-
-    local screamMaterial = Material(self:GetCurrentScreamer())
-    surface.SetMaterial( screamMaterial )
-    surface.SetDrawColor(255, 255, 255, 255)
-    surface.DrawTexturedRect(0, 0, CHARMING_DISCUSSION_CONFIG.ScrW, CHARMING_DISCUSSION_CONFIG.ScrH)
-end
-
-function SWEP:StartScreamer()
-end
-
-function SWEP:NextScreamer()
-end
+charming_discussion.AddLanguage("fr", LANG_FR)

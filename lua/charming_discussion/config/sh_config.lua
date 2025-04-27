@@ -39,11 +39,22 @@ CHARMING_DISCUSSION_CONFIG.Sounds.Special = {}
 CHARMING_DISCUSSION_CONFIG.Sounds.Special[1] = "charming_discussion/special/applause.mp3"
 
 CHARMING_DISCUSSION_CONFIG.Sounds.Scream = {}
-CHARMING_DISCUSSION_CONFIG.Sounds.Scream[1] = ""
+CHARMING_DISCUSSION_CONFIG.Sounds.Scream[1] = "charming_discussion/scream/scream-01.mp3"
+CHARMING_DISCUSSION_CONFIG.Sounds.Scream[2] = "charming_discussion/scream/scream-02.mp3"
+CHARMING_DISCUSSION_CONFIG.Sounds.Scream[3] = "charming_discussion/scream/scream-03.mp3"
+CHARMING_DISCUSSION_CONFIG.Sounds.Scream[4] = "charming_discussion/scream/scream-04.mp3"
+CHARMING_DISCUSSION_CONFIG.Sounds.Scream[5] = "charming_discussion/scream/scream-05.mp3"
+CHARMING_DISCUSSION_CONFIG.Sounds.Scream[6] = "charming_discussion/scream/scream-06.mp3"
 
 -- Images Path
 CHARMING_DISCUSSION_CONFIG.Images = {}
 CHARMING_DISCUSSION_CONFIG.Images[1] = "charming_discussion/images/goose_01.png"
+CHARMING_DISCUSSION_CONFIG.Images[2] = "charming_discussion/images/goose_02.png"
+CHARMING_DISCUSSION_CONFIG.Images[3] = "charming_discussion/images/goose_03.png"
+CHARMING_DISCUSSION_CONFIG.Images[4] = "charming_discussion/images/goose_04.png"
+CHARMING_DISCUSSION_CONFIG.Images[5] = "charming_discussion/images/goose_05.png"
+CHARMING_DISCUSSION_CONFIG.Images[6] = "charming_discussion/images/goose_06.png"
+CHARMING_DISCUSSION_CONFIG.Images[7] = "charming_discussion/images/goose_07.png"
 
 --Settings params
 CHARMING_DISCUSSION_CONFIG.DistanceFucker = 500

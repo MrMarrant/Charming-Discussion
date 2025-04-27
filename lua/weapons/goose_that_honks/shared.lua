@@ -185,12 +185,12 @@ end
 
 function SWEP:NextScreamer()
 	local ply = self:GetOwner()
-	timer.Create("CharmingDiscussion.ScreamHonk", math.random(3, 5), 1, function()
+	timer.Create("CharmingDiscussion.ScreamHonk." .. ply:EntIndex(), math.random(20, 30), 1, function()
 		if not self:IsValid() or not ply:IsValid() then return end
 
 		self:SetCurrentScreamer(CHARMING_DISCUSSION_CONFIG.Images[math.random(1, #CHARMING_DISCUSSION_CONFIG.Images)])
 		ply:EmitSound(CHARMING_DISCUSSION_CONFIG.Sounds.Scream[math.random(1, #CHARMING_DISCUSSION_CONFIG.Sounds.Scream)])
-		timer.Create("CharmingDiscussion.ScreamDelay", 0.3, 1, function()
+		timer.Create("CharmingDiscussion.ScreamDelay." .. ply:EntIndex(), 0.3, 1, function()
 			if not self:IsValid() or not ply:IsValid() then return end
 
 			self:SetCurrentScreamer("")

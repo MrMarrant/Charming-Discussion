@@ -13,12 +13,12 @@
 
 hook.Add( "PlayerDeath", "CharmingDiscussion.PlayerDeath", function(ply)
     ply.charmingdiscussion_wasHonk = false
-    timer.Remove("CharmingDiscussion.ScreamHonk")
-    timer.Remove("CharmingDiscussion.ScreamDelay")
+    timer.Remove("CharmingDiscussion.ScreamHonk." .. ply:EntIndex())
+    timer.Remove("CharmingDiscussion.ScreamDelay." .. ply:EntIndex())
 end)
 
 hook.Add( "PlayerChangedTeam", "CharmingDiscussion.PlayerChangedTeam", function( ply, oldTeam, newTeam )
     ply.charmingdiscussion_wasHonk = false
-    timer.Remove("CharmingDiscussion.ScreamHonk")
-    timer.Remove("CharmingDiscussion.ScreamDelay")
+    timer.Remove("CharmingDiscussion.ScreamHonk." .. ply:EntIndex())
+    timer.Remove("CharmingDiscussion.ScreamDelay." .. ply:EntIndex())
 end )

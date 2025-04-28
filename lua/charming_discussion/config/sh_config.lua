@@ -14,6 +14,22 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+--[[
+* Allows you to load all the name paths in a table.
+* @string folderRoot The main path of the directory to load.
+* @string directory The full path where the files are located.
+* @string path The path to look for the files and directories in. (default: "LUA")
+* @table tableAssets The table where the path of the files will be stored.
+--]]
+local function LoadAssets( folderRoot, directory, path, tableAssets )
+    path = path or "GAME"
+    folderRoot = folderRoot .. "/"
+    local files = file.Find( folderRoot .. directory .. "*", path )
+    for k, v in ipairs( files ) do
+        table.insert( tableAssets, k, directory .. v )
+    end
+end
+
 -- Net Var
 CHARMING_DISCUSSION_CONFIG.NetVar = {}
 CHARMING_DISCUSSION_CONFIG.NetVar.ScreamerHonk = "CHARMING_DISCUSSION_CONFIG.NetVar.ScreamerHonk"
@@ -21,40 +37,23 @@ CHARMING_DISCUSSION_CONFIG.NetVar.ScreamerHonk = "CHARMING_DISCUSSION_CONFIG.Net
 -- Sound Path
 CHARMING_DISCUSSION_CONFIG.Sounds = {}
 CHARMING_DISCUSSION_CONFIG.Sounds.BadLanguage = {}
-CHARMING_DISCUSSION_CONFIG.Sounds.BadLanguage[1] = "charming_discussion/bad_language/bad_language-01.mp3"
-CHARMING_DISCUSSION_CONFIG.Sounds.BadLanguage[2] = "charming_discussion/bad_language/bad_language-02.mp3"
-CHARMING_DISCUSSION_CONFIG.Sounds.BadLanguage[3] = "charming_discussion/bad_language/bad_language-03.mp3"
-CHARMING_DISCUSSION_CONFIG.Sounds.BadLanguage[4] = "charming_discussion/bad_language/bad_language-04.mp3"
+LoadAssets( "sound", "charming_discussion/bad_language/", "GAME", CHARMING_DISCUSSION_CONFIG.Sounds.BadLanguage )
 
 CHARMING_DISCUSSION_CONFIG.Sounds.Response = {}
-CHARMING_DISCUSSION_CONFIG.Sounds.Response[1] = "charming_discussion/response/response-01.mp3"
+LoadAssets( "sound", "charming_discussion/response/", "GAME", CHARMING_DISCUSSION_CONFIG.Sounds.Response )
 
 CHARMING_DISCUSSION_CONFIG.Sounds.Ouink = {}
-CHARMING_DISCUSSION_CONFIG.Sounds.Ouink[1] = "charming_discussion/ouink/ouink-01.mp3"
-CHARMING_DISCUSSION_CONFIG.Sounds.Ouink[2] = "charming_discussion/ouink/ouink-02.mp3"
-CHARMING_DISCUSSION_CONFIG.Sounds.Ouink[3] = "charming_discussion/ouink/ouink-03.mp3"
-CHARMING_DISCUSSION_CONFIG.Sounds.Ouink[4] = "charming_discussion/ouink/ouink-04.mp3"
+LoadAssets( "sound", "charming_discussion/ouink/", "GAME", CHARMING_DISCUSSION_CONFIG.Sounds.Ouink )
 
 CHARMING_DISCUSSION_CONFIG.Sounds.Special = {}
-CHARMING_DISCUSSION_CONFIG.Sounds.Special[1] = "charming_discussion/special/applause.mp3"
+LoadAssets( "sound", "charming_discussion/special/", "GAME", CHARMING_DISCUSSION_CONFIG.Sounds.Special )
 
 CHARMING_DISCUSSION_CONFIG.Sounds.Scream = {}
-CHARMING_DISCUSSION_CONFIG.Sounds.Scream[1] = "charming_discussion/scream/scream-01.mp3"
-CHARMING_DISCUSSION_CONFIG.Sounds.Scream[2] = "charming_discussion/scream/scream-02.mp3"
-CHARMING_DISCUSSION_CONFIG.Sounds.Scream[3] = "charming_discussion/scream/scream-03.mp3"
-CHARMING_DISCUSSION_CONFIG.Sounds.Scream[4] = "charming_discussion/scream/scream-04.mp3"
-CHARMING_DISCUSSION_CONFIG.Sounds.Scream[5] = "charming_discussion/scream/scream-05.mp3"
-CHARMING_DISCUSSION_CONFIG.Sounds.Scream[6] = "charming_discussion/scream/scream-06.mp3"
+LoadAssets( "sound", "charming_discussion/scream/", "GAME", CHARMING_DISCUSSION_CONFIG.Sounds.Scream )
 
 -- Images Path
 CHARMING_DISCUSSION_CONFIG.Images = {}
-CHARMING_DISCUSSION_CONFIG.Images[1] = "charming_discussion/images/goose_01.png"
-CHARMING_DISCUSSION_CONFIG.Images[2] = "charming_discussion/images/goose_02.png"
-CHARMING_DISCUSSION_CONFIG.Images[3] = "charming_discussion/images/goose_03.png"
-CHARMING_DISCUSSION_CONFIG.Images[4] = "charming_discussion/images/goose_04.png"
-CHARMING_DISCUSSION_CONFIG.Images[5] = "charming_discussion/images/goose_05.png"
-CHARMING_DISCUSSION_CONFIG.Images[6] = "charming_discussion/images/goose_06.png"
-CHARMING_DISCUSSION_CONFIG.Images[7] = "charming_discussion/images/goose_07.png"
+LoadAssets( "materials", "charming_discussion/images/", "GAME", CHARMING_DISCUSSION_CONFIG.Images )
 
 --Settings params
 CHARMING_DISCUSSION_CONFIG.DistanceFucker = 500
